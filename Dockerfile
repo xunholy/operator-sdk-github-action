@@ -6,6 +6,8 @@ LABEL "name"="Operator-SDK Docker Action" \
     "maintainer"="Michael Fornaro <michaelfornaro@gmail.com>" \
     "version"="1.0.0"
 
+WORKDIR /home/default
+
 ENV RELEASE_VERSION=${RELEASE_VERSION}
 
 COPY entrypoint.sh /entrypoint.sh

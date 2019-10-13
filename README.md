@@ -28,6 +28,6 @@ Built image name
 uses: xunholy/operator-sdk-action
 with:
     builder: docker
-    image: ""
+    image: "example"
     tag: 1.0
 ```

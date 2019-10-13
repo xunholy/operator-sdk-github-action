@@ -19,6 +19,6 @@ if [ -z "$TAG" ]; then
   TAG="latest"
 fi
 
-./operator-sdk-v0.11.0-x86_64-linux-gnu build "$IMAGE:$TAG" --image-builder="$BUILDER"
+/home/default/operator-sdk-v0.11.0-x86_64-linux-gnu build "$IMAGE:$TAG" --image-builder="$BUILDER"
 
 echo ::set-output name=image::"$IMAGE:$TAG"
