@@ -2,6 +2,8 @@
 
 set -e
 
+unset GOROOT
+
 IMAGE=$1
 TAG=$2
 DIR=$3
