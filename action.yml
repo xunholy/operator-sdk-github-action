@@ -11,6 +11,9 @@ inputs:
   tag:
     description: 'Image tag'
     required: false
+  dirPath:
+    description: 'Project structure requires build/Dockerfile'
+    required: false
 outputs:
   image:
     description: 'Built docker image'
@@ -20,3 +23,4 @@ runs:
   args:
     - ${{ inputs.image }}
     - ${{ inputs.tag }}
+    - ${{ inputs.dirPath }}
