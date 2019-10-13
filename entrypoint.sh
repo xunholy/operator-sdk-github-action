@@ -2,6 +2,9 @@
 
 set -e
 
+export CGO_ENABLED=0
+export GOOS=linux
+
 unset GOROOT
 
 IMAGE=$1
@@ -34,6 +37,6 @@ chmod +x /operator-sdk
 
 cd "$DIR" || exit 1
 
-/operator-sdk build "$IMAGE:$TAG" --image-builder="docker"
+/operator-sdk build "$IMAGE:$TAG" --image-builder="docker" --go-build-args="-a -installsuffix cgo -ldflags '-w -extldflags \"-static\"'"
 
 echo ::set-output name=image::"$IMAGE:$TAG"
