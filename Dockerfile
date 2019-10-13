@@ -10,7 +10,7 @@ ENV RELEASE_VERSION=${RELEASE_VERSION}
 
 RUN apk update -q && \
     apk upgrade -q && \
-    apk --no-cache -q add curl git go mercurial
+    apk --no-cache -q add bash curl git go mercurial
 
 COPY entrypoint.sh /entrypoint.sh
 
