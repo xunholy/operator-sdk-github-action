@@ -12,8 +12,6 @@ COPY entrypoint.sh /entrypoint.sh
 
 RUN apk update -q && \
     apk upgrade -q && \
-    apk --no-cache -q add curl git go mercurial && \
-    curl -L -o /operator-sdk https://github.com/operator-framework/operator-sdk/releases/download/${RELEASE_VERSION}/operator-sdk-${RELEASE_VERSION}-x86_64-linux-gnu && \
-    chmod +x /operator-sdk
+    apk --no-cache -q add curl git go mercurial
 
 ENTRYPOINT ["/entrypoint.sh"]
