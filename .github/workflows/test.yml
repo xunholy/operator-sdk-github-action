@@ -6,10 +6,10 @@ jobs:
     name: Build docker image for test
     steps:
       - name: Fetch Repository
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
 
       - name: Operator-SDK Build
-        uses: xunholy/operator-sdk-action@master
+        uses: xunholy/operator-sdk-action@feature/create-action
         with:
           builder: docker
           image: example
