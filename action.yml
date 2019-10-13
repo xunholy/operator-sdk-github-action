@@ -1,0 +1,25 @@
+name: 'Operator-SDK Action'
+description: 'GitHub Actions for Operator-SDK build'
+author: 'Michael Fornaro <michaelfornaro@gmail.com>'
+branding:
+  icon: 'package'
+  color: 'blue'
+inputs:
+  builder:
+    description: 'Tool to build OCI image. (docker, podman, buildah)'
+    required: false
+  image:
+    description: 'Image name'
+    required: true
+  tag:
+    description: 'Image tag'
+    required: false
+outputs:
+  image:
+    description: 'Built docker image'
+runs:
+  using: 'ubuntu'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.image }}
+    - ${{ inputs.tag }}
