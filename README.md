@@ -4,10 +4,6 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-`builder`
-
-**Optional** Tool to build OCI images. One of: [docker, podman, buildah] (default "docker")
-
 `image`
 
 **Required** The name of the docker image.
@@ -27,7 +23,10 @@ Built image name
 ```yaml
 uses: xunholy/operator-sdk-action
 with:
-    builder: docker
     image: "example"
     tag: 1.0
 ```
+
+## Limitation
+
+Currently `--build-args` are not supported.

@@ -5,9 +5,6 @@ branding:
   icon: 'package'
   color: 'blue'
 inputs:
-  builder:
-    description: 'Tool to build OCI image. (docker, podman, buildah)'
-    required: false
   image:
     description: 'Image name'
     required: true
