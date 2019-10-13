@@ -18,7 +18,7 @@ outputs:
   image:
     description: 'Built docker image'
 runs:
-  using: 'ubuntu'
+  using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.image }}
