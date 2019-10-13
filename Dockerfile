@@ -8,10 +8,10 @@ LABEL "name"="Operator-SDK Docker Action" \
 
 ENV RELEASE_VERSION=${RELEASE_VERSION}
 
-COPY entrypoint.sh /entrypoint.sh
-
 RUN apk update -q && \
     apk upgrade -q && \
     apk --no-cache -q add curl git go mercurial
+
+COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
