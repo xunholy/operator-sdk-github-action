@@ -13,6 +13,6 @@ if [ -z "$TAG" ]; then
   TAG="latest"
 fi
 
-/home/default/operator-sdk-v0.11.0-x86_64-linux-gnu build "$IMAGE:$TAG" --image-builder="docker"
+/operator-sdk build "$IMAGE:$TAG" --image-builder="docker"
 
 echo ::set-output name=image::"$IMAGE:$TAG"
