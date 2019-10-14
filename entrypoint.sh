@@ -2,9 +2,6 @@
 
 set -e
 
-export CGO_ENABLED=0
-export GOOS=linux
-
 unset GOROOT
 
 IMAGE=$1
@@ -31,12 +28,12 @@ if [ -z "$RELEASE_VERSION" ]; then
   RELEASE_VERSION="v0.11.0"
 fi
 
+cd "$DIR" || exit 1
+
 curl -L -o /operator-sdk "https://github.com/operator-framework/operator-sdk/releases/download/${RELEASE_VERSION}/operator-sdk-${RELEASE_VERSION}-x86_64-linux-gnu"
 
 chmod +x /operator-sdk
 
-cd "$DIR" || exit 1
-
-/operator-sdk build "$IMAGE:$TAG" --image-builder="docker" --go-build-args="-a -installsuffix cgo" --go-build-args="-ldflags=-extldflags=-static"
+/operator-sdk build "$IMAGE:$TAG" --image-builder="docker" --go-build-args="-a -installsuffix cgo -ldflags=-extldflags=-static"
 
 echo ::set-output name=image::"$IMAGE:$TAG"

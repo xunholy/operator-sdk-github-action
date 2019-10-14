@@ -7,7 +7,9 @@ LABEL "name"="Operator-SDK Docker Action" \
     "version"="1.0.0"
 
 ENV RELEASE_VERSION=${RELEASE_VERSION} \
-    GO111MODULE=on
+    GO111MODULE=on \
+    CGO_ENABLED=0 \
+    GOOS=linux
 
 RUN apk update -q && \
     apk upgrade -q && \
